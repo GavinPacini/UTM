@@ -599,6 +599,10 @@ static size_t sysctl_read(const char *name) {
     [self argsRequired];
     if (!self.configuration.ignoreAllConfiguration) {
         [self argsFromConfiguration];
+    } else {
+        [self targetSpecificConfiguration];
+        [self argsForDrives];
+        [self argsForSharing];
     }
     if (userOptions) {
         [self argsFromUser];
